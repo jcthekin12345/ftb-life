@@ -3,30 +3,39 @@ import sys
 
 from textual.app import App, ComposeResult
 from textual.containers import Container, Horizontal
-from textual.widgets import Label, Button, Footer, Header, Static
+from textual.screen import Screen
+from textual.widgets import Label, Button, Footer, Header, Static, Input
 
 CREATE = "New Game"
+
+class FtbMainMenu(App[str]):
+    def compose(self) -> ComposeResult:
+        yield Button("New Game", id="new-game", variant="success")
+        yield Button("Load Game", id="load-game", variant="success")
+        yield Button("Options", id="options", variant="success")
+        yield Button("Exit", id="exit", variant="error")
+
 
 class Ftb(App[str]):
 
     CSS_PATH = "playerGen.tcss"
+    TITLE = "Football Life"
+    SCREENS = {"ftbMainMenu": FtbMainMenu}
 
     def compose(self) -> ComposeResult:
-        yield Label("Do you love Textual?")
-        yield Button("Yes", id="yes", variant="primary")
-        yield Button("No", id="no", variant="error")
         yield Container(
             Static(CREATE, classes="question"),
             Horizontal(
-                Button("Create New Player", variant="success"),
-                Button("Exit", variant="error"),
+                Button("Create New Player", id="create-player", variant="success"),
+                Button("Exit", id="exit",variant="error"),
                 classes="buttons",
             ),
             id="dialog",
         )
 
     def on_button_pressed(self, event: Button.Pressed) -> None:
-        self.exit(event.button.id)
+        if event.button.id == "exit":
+            self.exit()
 
 
 class Player:
