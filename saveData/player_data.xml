@@ -1,0 +1,14 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<player>
+ <name></name>
+ <age></age>
+ <position></position>
+ <attributes>
+  <weakfoot></weakfoot>
+  <attacking></attacking>
+  <defending></defending>
+  <positioning></positioning>
+ </attributes>
+</player>
