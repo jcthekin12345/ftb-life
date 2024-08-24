@@ -29,6 +29,8 @@ class FtbPlayerCreator(Screen):
 
 class FtbMainMenu(App[str]):
 
+    CSS_PATH = "playerMenu.tcss"
+
     SCREENS = {"ftbPlayerCreation": FtbPlayerCreator}
 
     def compose(self) -> ComposeResult:
@@ -39,8 +41,9 @@ class FtbMainMenu(App[str]):
                 Button("Load Game", id="load-game", variant="success"),
                 Button("Options", id="options", variant="success"),
                 Button("Exit", id="exit", variant="error"),
+                classes="buttons",
             ),
-            id="dialog",
+            id="mainMenu",
         )
     def on_button_pressed(self, event: Button.Pressed) -> None:
         if event.button.id == "exit":

@@ -1,0 +1,11 @@
+
+
+Button {
+  width: 1fr;
+}
+
+.main-menu-title {
+  text-style: bold;
+  height: 100%;
+  content-align: center top;
+}
