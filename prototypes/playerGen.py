@@ -2,7 +2,7 @@ import random
 import sys
 
 from textual.app import App, ComposeResult
-from textual.containers import Container, Horizontal
+from textual.containers import Container, Horizontal, Vertical
 from textual.screen import Screen
 from textual.widgets import Label, Button, Footer, Header, Static, Input
 
@@ -36,7 +36,7 @@ class FtbMainMenu(App[str]):
     def compose(self) -> ComposeResult:
         yield Container(
             Static("Football Life", classes="main-menu-title"),
-            Horizontal(
+            Vertical(
                 Button("New Game", id="new-game", variant="success"),
                 Button("Load Game", id="load-game", variant="success"),
                 Button("Options", id="options", variant="success"),

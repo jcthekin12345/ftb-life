@@ -1,4 +1,9 @@
-
+#mainMenu {
+    height: 100%;
+    background: $panel;
+    color: $text;
+    border: tall $background;
+}
 
 Button {
   width: 1fr;
