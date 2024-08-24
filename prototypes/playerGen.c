@@ -6,8 +6,12 @@ int main() {
 
 }
 
-typedef player
+typedef struct Player {
+    char* name;
+    int age;
+    char* position[5];
+} Player;
 
-void player(player) {
-  if
+void player(Player* p) {
+
 }

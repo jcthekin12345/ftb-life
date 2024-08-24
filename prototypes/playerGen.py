@@ -1,12 +1,22 @@
+import random
+class Player:
+    def __init__(self, **kwargs):
+        self.name  = kwargs.get("name")
+        self.age = kwargs.get("age")
+        self.position = kwargs.get("position")
 
-def player(*args):
-    """A player generation prototype"""
-    playerInfo = [i for i in args]
-    return playerInfo
+    def __str__(self):
+        return f"name: {self.name} age: {self.age} positions: {self.position}"
+
+    def createPlayer(self):
+        pass
+
 
 def player_gen():
-    player()
+
+    print(Player(name="Joaquin Coetzee", age=18, position=("CAM", "AMC", "AML", "AMR")))
+
 
 
 if __name__ == "__main__":
-    print(player("name", 5, "10"))
+    player_gen()
