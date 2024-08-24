@@ -25,7 +25,7 @@ class FtbPlayerCreator(Screen):
 
     def on_button_pressed(self, event: Button.Pressed) -> None:
         if event.button.id == "exit":
-            self.exit()
+            self.app.exit()
 
 class FtbMainMenu(App[str]):
 
@@ -43,8 +43,10 @@ class FtbMainMenu(App[str]):
             id="dialog",
         )
     def on_button_pressed(self, event: Button.Pressed) -> None:
-        if event.button.id == "new-game":
-            pass
+        if event.button.id == "exit":
+            self.exit()
+        elif event.button.id == "new-game":
+            self.app.push_screen("ftbPlayerCreation")
 
 
 
