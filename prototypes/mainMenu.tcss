@@ -1,6 +1,6 @@
 #mainMenu {
-    height: 50%;
-    margin: 4 8;
+    height: 100%;
+    margin: 1 4;
     background: $panel;
     color: $text;
     border: tall $background;
@@ -8,19 +8,24 @@
 }
 
 .main-menu-title {
+  align-vertical: top;
   text-style: bold;
   height: 100%;
   content-align: center top;
 }
 
-.buttons {
-  width: 100%;
-  height: 100%;
-  content-align-vertical: center middle;
+Button {
+  width: 15%;
 }
 
 .buttons {
-  width: 100%;
+  width: auto;
+  height: auto;
+  content-align-vertical: middle;
+}
+
+.buttons {
+  width: auto;
   height: auto;
   dock: bottom;
 }

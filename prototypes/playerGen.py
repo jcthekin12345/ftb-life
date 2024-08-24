@@ -26,6 +26,13 @@ class FtbPlayerCreator(Screen):
     def on_button_pressed(self, event: Button.Pressed) -> None:
         if event.button.id == "exit":
             self.app.exit()
+            #TODO: changed self.app.exit to go back to main menu
+
+class FtbPlayerGen(Screen):
+    TITLE = "Create Player"
+
+    def compose(self) -> ComposeResult:
+        pass
 
 class FtbMainMenu(App[str]):
 
