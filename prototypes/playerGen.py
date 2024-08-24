@@ -9,7 +9,7 @@ from textual.widgets import Label, Button, Footer, Header, Static, Input
 
 class FtbPlayerCreator(Screen):
     """Player creator screen class"""
-    CSS_PATH = "playerGen.tcss"
+    CSS_PATH = "playerMenu.tcss"
     TITLE = "Football Life"
 
     def compose(self) -> ComposeResult:
@@ -29,7 +29,7 @@ class FtbPlayerCreator(Screen):
 
 class FtbMainMenu(App[str]):
 
-    CSS_PATH = "playerMenu.tcss"
+    CSS_PATH = "mainMenu.tcss"
 
     SCREENS = {"ftbPlayerCreation": FtbPlayerCreator}
 

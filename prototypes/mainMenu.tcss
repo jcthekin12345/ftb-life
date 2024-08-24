@@ -1,12 +1,10 @@
 #mainMenu {
-    height: 100%;
+    height: 50%;
+    margin: 4 8;
     background: $panel;
     color: $text;
     border: tall $background;
-}
-
-Button {
-  width: 1fr;
+    padding: 1 2;
 }
 
 .main-menu-title {
@@ -18,7 +16,7 @@ Button {
 .buttons {
   width: 100%;
   height: 100%;
-  content-align: center middle;
+  content-align-vertical: center middle;
 }
 
 .buttons {
