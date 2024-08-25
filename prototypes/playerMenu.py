@@ -1,8 +1,7 @@
-
 from textual.app import ComposeResult
 from textual.containers import Container, Horizontal
 from textual.screen import Screen
-from textual.widgets import Static
+from textual.widgets import Button, Static
 
 
 class FtbPlayerCreator(Screen):
@@ -18,5 +17,19 @@ class FtbPlayerCreator(Screen):
     def compose(self) -> ComposeResult:
         yield Container(
             Static("Player Creation", classes="question"),
-            Horizontal
+            Horizontal(
+                Button("Create New Player", id="create-player", variant="success"),
+                Button("Exit", id="exit",variant="error"),
+                classes="buttons",
+            ),
+            id="dialog",
         )
+
+    def on_button_pressed(self, event: Button.Pressed) -> None:
+        if event.button.id == "exit":
+            self.app.push_screen()
+            #TODO: changed self.app.exit to go back to main menu
+
+
+if __name__ == "__main__":
+    main()
