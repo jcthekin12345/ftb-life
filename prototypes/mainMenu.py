@@ -1,6 +1,6 @@
 
 from playerMenu import *
-from textual import on
+from textual import on, work
 from textual.app import App, ComposeResult
 from textual.containers import Container, Vertical
 from textual.widgets import Button, Label, Static
@@ -25,10 +25,19 @@ class NewGameMenu(Screen[bool]):
     def handle_no(self) -> None:
         self.dismiss(False)
 
-class MainMenu(App[str]):
+class MainMenu(App):
     """Main menu class"""
 
     CSS_PATH = "mainMenu.tcss"
+
+    @work
+    async def on_mount(self) -> None:
+        if await self.push_screen_wait(
+            NewGameMenu("Do you wanna create your player?"),
+        ):
+            self.notify("Good Answer!")
+        else:
+            self.notify(":-(", severity="error")
 
     def compose(self) -> ComposeResult:
         yield Container(
@@ -48,12 +57,9 @@ class MainMenu(App[str]):
             self.exit()
         elif event.button.id == "new-game":
             self.app.push_screen("createPrompt")
-#Main function
-def main():
-    app = MainMenu()
-    reply = app.run()
-    print(reply)
+
 
 
 if __name__ == "__main__":
-    main()
+    app = MainMenu()
+    app.run()
