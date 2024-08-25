@@ -11,6 +11,9 @@ class PlayerCreationMenu(Screen):
         yield Button("Yes", id="yes", variant="success")
         yield Button("No", id="no")
 
+    def on_button_pressed(self, event: Button.Pressed):
+        if event.button.id ==
+
 class OptionsMenu(Screen):
     def compose(self) -> ComposeResult:
         yield Placeholder("Settings Menu")
@@ -25,6 +28,11 @@ class MainMenu(App):
     """Main menu class"""
 
     CSS_PATH = "mainMenu.tcss"
+    MODES = {
+        "playerCreationMenu": PlayerCreationMenu,
+        "optionsMenu": OptionsMenu,
+        "loadGameMenu": LoadGameMenu,
+    }
 
     def compose(self) -> ComposeResult:
         yield Container(
@@ -43,7 +51,7 @@ class MainMenu(App):
         if event.button.id == "exit":
             self.exit()
         elif event.button.id == "new-game":
-            self.app.push_screen("createPrompt")
+            self.switch_mode("playerCreationMenu")
 
 
 
