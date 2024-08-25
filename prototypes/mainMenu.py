@@ -12,7 +12,9 @@ class PlayerCreationMenu(Screen):
         yield Button("No", id="no")
 
     def on_button_pressed(self, event: Button.Pressed):
-        if event.button.id ==
+        if event.button.id == "yes":
+            self.notify("Coming soon...")
+
 
 class OptionsMenu(Screen):
     def compose(self) -> ComposeResult:
