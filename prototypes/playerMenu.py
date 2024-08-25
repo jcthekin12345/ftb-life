@@ -22,7 +22,7 @@ class CreatePrompt(Screen):
                 Button("Exit", id="exit",variant="error"),
                 classes="buttons",
             ),
-            id="dialog",
+            id="prompt",
         )
 
     def on_button_pressed(self, event: Button.Pressed) -> None:

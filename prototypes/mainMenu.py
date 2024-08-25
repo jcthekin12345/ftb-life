@@ -4,11 +4,10 @@ from textual.containers import Container, Vertical
 from textual.widgets import Button, Static
 
 
-class FtbMainMenu(App[str]):
+class MainMenu(App[str]):
 
     CSS_PATH = "mainMenu.tcss"
 
-    SCREENS = {"ftbPlayerCreation": FtbPlayerCreator}
 
     def compose(self) -> ComposeResult:
         yield Container(
