@@ -1,12 +1,12 @@
 
 from playerMenu import *
-from textual import on, work
+from textual import work
 from textual.app import App, ComposeResult
 from textual.containers import Container, Vertical
 from textual.widgets import Button, Label, Static
 
 
-class NewGameMenu(Screen[bool]):
+class PlayerCreationMenu(Screen):
     """New Game menu prompt"""
     def __init__(self, question: str):
         self.question = question
@@ -17,13 +17,12 @@ class NewGameMenu(Screen[bool]):
         yield Button("Yes", id="yes", variant="success")
         yield Button("No", id="no")
 
-    @on(Button.Pressed, "#yes")
-    def handle_yes(self) -> None:
-        self.dismiss(True)
 
-    @on(Button.Pressed, "#no")
-    def handle_no(self) -> None:
-        self.dismiss(False)
+
+
+class OptionsMenu(Screen):
+    def compose(self) -> ComposeResult:
+        yield PlaceHolder()
 
 class MainMenu(App):
     """Main menu class"""
