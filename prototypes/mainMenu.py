@@ -11,6 +11,7 @@ class FtbPlayerCreator(Screen):
     """Player creator screen class"""
     CSS_PATH = "playerMenu.tcss"
     TITLE = "Football Life"
+    SCREENS = {"ftbMainMenu", FtbMainMenu}
 
     def compose(self) -> ComposeResult:
         yield Container(
@@ -25,14 +26,15 @@ class FtbPlayerCreator(Screen):
 
     def on_button_pressed(self, event: Button.Pressed) -> None:
         if event.button.id == "exit":
-            self.app.exit()
+            self.app.push_screen()
             #TODO: changed self.app.exit to go back to main menu
 
 class FtbPlayerGen(Screen):
     TITLE = "Create Player"
 
     def compose(self) -> ComposeResult:
-        pass
+
+
 
 class FtbMainMenu(App[str]):
 
