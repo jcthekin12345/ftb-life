@@ -1,18 +1,7 @@
-import random
-import sys
 
 from textual.app import App, ComposeResult
-from textual.containers import Container, Horizontal, Vertical
-from textual.screen import Screen
-from textual.widgets import Label, Button, Footer, Header, Static, Input
-
-
-
-class FtbPlayerGen(Screen):
-    TITLE = "Create Player"
-
-    def compose(self) -> ComposeResult:
-
+from textual.containers import Container, Vertical
+from textual.widgets import Button, Static
 
 
 class FtbMainMenu(App[str]):
