@@ -1,4 +1,8 @@
+
+from textual.app import ComposeResult
+from textual.containers import Container, Horizontal
 from textual.screen import Screen
+from textual.widgets import Static
 
 
 class FtbPlayerCreator(Screen):
@@ -13,5 +17,6 @@ class FtbPlayerCreator(Screen):
 
     def compose(self) -> ComposeResult:
         yield Container(
-            Static("Player Creation", )
+            Static("Player Creation", classes="question"),
+            Horizontal
         )
