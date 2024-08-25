@@ -4,7 +4,7 @@ from textual.screen import Screen
 from textual.widgets import Button, Static
 
 
-class FtbPlayerCreator(Screen):
+class CreatePrompt(Screen):
     """Player creator screen"""
     def __init__(self, main_menu):
         self.ftbMain = main_menu
