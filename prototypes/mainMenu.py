@@ -1,42 +1,30 @@
-
-from playerMenu import *
 from textual import work
 from textual.app import App, ComposeResult
 from textual.containers import Container, Vertical
-from textual.widgets import Button, Label, Static
-
+from textual.screen import Screen
+from textual.widgets import Button, Label, Static, Placeholder, Footer
 
 class PlayerCreationMenu(Screen):
     """New Game menu prompt"""
-    def __init__(self, question: str):
-        self.question = question
-        super().__init__()
-
     def compose(self) -> ComposeResult:
-        yield Label(self.question)
+        yield Label("Do you wanna create a player?")
         yield Button("Yes", id="yes", variant="success")
         yield Button("No", id="no")
 
-
-
-
 class OptionsMenu(Screen):
     def compose(self) -> ComposeResult:
-        yield PlaceHolder()
+        yield Placeholder("Settings Menu")
+        yield Footer()
+
+class LoadGameMenu(Screen):
+    def compose(self) -> ComposeResult:
+        yield Placeholder("Load Game Menu")
+        yield Footer()
 
 class MainMenu(App):
     """Main menu class"""
 
     CSS_PATH = "mainMenu.tcss"
-
-    @work
-    async def on_mount(self) -> None:
-        if await self.push_screen_wait(
-            NewGameMenu("Do you wanna create your player?"),
-        ):
-            self.notify("Good Answer!")
-        else:
-            self.notify(":-(", severity="error")
 
     def compose(self) -> ComposeResult:
         yield Container(
