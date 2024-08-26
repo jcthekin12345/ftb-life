@@ -1,20 +1,26 @@
 from textual import work
 from textual.app import App, ComposeResult
-from textual.containers import Container, Vertical
+from textual.containers import Container, Vertical, Horizontal
 from textual.screen import Screen
 from textual.widgets import Button, Label, Static, Placeholder, Footer
 
 class PlayerCreationMenu(Screen):
     """New Game menu prompt"""
     def compose(self) -> ComposeResult:
-        yield Label("Do you wanna create a player?")
-        yield Button("Yes", id="yes", variant="success")
-        yield Button("No", id="no")
+        yield Container(
+            Static("Do you wanna create a player?", classes="question"),
+            Horizontal(
+                Button("Yes", id="yes", variant="success"),
+                Button("No", id="no", variant="error"),
+                classes="buttons"
+            )
+        )
 
     def on_button_pressed(self, event: Button.Pressed):
         if event.button.id == "yes":
             self.notify("Coming soon...")
-
+        elif event.button.id == "no":
+            self.app.exit()
 
 class OptionsMenu(Screen):
     def compose(self) -> ComposeResult:

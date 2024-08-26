@@ -1,4 +1,4 @@
-#dialog {
+#prompt {
    height: 100%;
    margin: 4 8;
    background: $panel;
