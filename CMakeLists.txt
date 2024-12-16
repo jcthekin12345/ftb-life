@@ -6,4 +6,4 @@ set(CMAKE_CXX_STANDARD 20)
 add_executable(ftb_life src/main.cpp
         src/Player.cpp
         include/Player.h
-        src/Skill.h)
+        include/Skill.h)
