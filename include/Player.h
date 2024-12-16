@@ -9,24 +9,45 @@
 #include "../include/Skill.h"
 #include <vector>
 
+//Player position
+enum class Position {RW, LW, CF, SS, AM, CM, LM, RM, RCM, LDM, CB, LCB, RCB, LB, RB, RWB, LWB, GK};
+
+struct SkillSet
+{
+  int shooting{};
+  int positioning{};
+  int dribbling{};
+  int pace{};
+  int passing{};
+  int tackling{};
+  int marking{};
+  int heading{};
+  int strength{};
+  int vision{};
+  int stamina{};
+};
+
 class Player {
 private:
-  std::string _name;
-  std::string _lastName;
-  std::string _role;
-  int _age;
-  std::string country;
-  std::unordered_map<std::string, Skill> skills;
-  // Add additional attributes as needed
-
-  static const std::unordered_map<std::string, std::vector<std::string>> roleSkills;
+  std::string _name{};
+  std::string _lastName{};
+  Position _position{};
+  SkillSet _skillSet{};
+  int _age{};
+  std::string country{};
 
 public:
   Player(const std::string& playerName
     , const std::string& playerLastName
     , const std::string& playerRole);
-  void incrementSkill(const std::string& skillName, int& value);
-  void decrementSkill(const std::string& skillName, int& value);
+  //std::string getName();
+  //std::string getLastName();
+  //Position getPosition();
+  //SkillSet getSkillSet();
+  //int getAge();
+  //std::string getCountry();
+  void incrementSkill(int& value);
+  void decrementSkill(int& value);
   void displaySkills() const;
 
 };
